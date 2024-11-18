@@ -1,0 +1,22 @@
+{
+  "name": "vendor/wherefilter",
+  "description": "A Laravel package for dynamic query filtering with whereable columns.",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Vendor\\WhereFilter\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mostafijur Rahman",
+      "email": "engmostafij1@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
