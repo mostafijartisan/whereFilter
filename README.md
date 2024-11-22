@@ -1,4 +1,4 @@
-# Core Idea of whereableFilter Laravel package
+# Core Idea of whereFilter Laravel package
 
 The package allows developers to dynamically apply `where` and `whereLike` filters to Eloquent queries without writing repetitive query-building logic in their controllers.
 
@@ -10,58 +10,58 @@ Instead of explicitly writing `->where()` or `->whereLike()` statements for each
 
 1. **Model class config**:
 
--   You have to import Filterable trait in your desire model class.
--   Then you have to create a `$filters` property that defines which fields can be filtered and how (e.g., `where`, `whereLike`).
+- You have to import Filterable trait in your desire model class.
+- Then you have to create a `$filters` property that defines which fields can be filtered and how (e.g., `where`, `whereLike`).
 
--   Code Example:
+- Code Example:
 
-    ```php
-    <?php
-    namespace App\Models;
+  ```php
+  <?php
+  namespace App\Models;
 
-    use Illuminate\Database\Eloquent\Model;
-    use Vendor\WhereableFilter\Traits\Filterable;
+  use Illuminate\Database\Eloquent\Model;
+  use Mostafijartisan\WhereFilter\Traits\Filter;
 
-    class Product extends Model
-    {
+  class Product extends Model
+  {
 
-        use Filterable;
+      use Filter;
 
-        protected $filters = [
-            ['column' => 'name', 'queryType' => 'whereLike'],
-            ['column' => 'size', 'queryType' => 'where'],
-            ['column' => 'color', 'queryType' => 'where'],
-            ['column' => 'status', 'queryType' => 'where'],
-        ];
-    }
-    ```
+      protected $filters = [
+          ['column' => 'name', 'queryType' => 'whereLike'],
+          ['column' => 'size', 'queryType' => 'where'],
+          ['column' => 'color', 'queryType' => 'where'],
+          ['column' => 'status', 'queryType' => 'where'],
+      ];
+  }
+  ```
 
 2. **Controller class config**:
 
--   In the controller, you simply pass the request data to the query using the scope:
--   `whereFilter` scope already defined in trait of package and this trait already used in model class. that's why we will can access whereFilter scope from controller.
-    ```php
-    $query = Model::query();
-    $query->whereFilter($request->all());
-    ```
+- In the controller, you simply pass the request data to the query using the scope:
+- `whereFilter` scope already defined in trait of package and this trait already used in model class. that's why we will can access whereFilter scope from controller.
+  ```php
+  $query = Model::query();
+  $query->whereFilter($request->all());
+  ```
 
 ### **Advantages**
 
 1. **Reduces Repetition**:
 
--   No need to write individual `where` or `whereLike` statements for each field.
+- No need to write individual `where` or `whereLike` statements for each field.
 
 2. **Scalable**:
 
--   Adding new filters is as simple as updating the `$filters` array in the model.
+- Adding new filters is as simple as updating the `$filters` array in the model.
 
 3. **Clean Code**:
 
--   Query-building logic is separated from controllers, making the code easier to read and maintain.
+- Query-building logic is separated from controllers, making the code easier to read and maintain.
 
 4. **Reusability**:
 
--   The package works across multiple models without duplicating logic.
+- The package works across multiple models without duplicating logic.
 
 ---
 

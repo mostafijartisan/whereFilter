@@ -1,22 +1,22 @@
 {
-  "name": "vendor/wherefilter",
-  "description": "A Laravel package for dynamic query filtering with whereable columns.",
+  "name": "mostafijartisan/wherefilter",
+  "description": "The package allows developers to dynamically apply `where` and `whereLike` filters to Eloquent queries without writing repetitive query-building logic in their controllers.",
   "type": "library",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Vendor\\WhereFilter\\": "src/"
+      "Mostafijartisan\\WhereFilter\\": "src/"
     }
   },
   "authors": [
     {
-      "name": "mostafijur Rahman",
+      "name": "Mostafijur Rahman",
       "email": "engmostafij1@gmail.com"
     }
   ],
   "require": {
     "php": "^8.0"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true
 }
