@@ -6,6 +6,12 @@ Instead of explicitly writing `->where()` or `->whereLike()` statements for each
 
 ---
 
+## Istallation
+
+```php
+composer require mostafijartisan/wherefilter
+```
+
 ## How it works
 
 1. **Model class config**:
