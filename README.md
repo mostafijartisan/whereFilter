@@ -1,4 +1,4 @@
-# Core Idea of whereFilter Laravel package
+# Core idea of whereFilter Laravel package
 
 The package allows developers to dynamically apply `where` and `whereLike` filters to Eloquent queries without writing repetitive query-building logic in their controllers.
 
