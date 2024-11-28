@@ -6,7 +6,7 @@ Instead of explicitly writing `->where()` or `->whereLike()` statements for each
 
 ---
 
-## Istallation
+## Installation
 
 ```php
 composer require mostafijartisan/wherefilter
@@ -17,7 +17,7 @@ composer require mostafijartisan/wherefilter
 1. **Model class config**:
 
 - You have to import Filterable trait in your desire model class.
-- Then you have to create a `$filters` property that defines which fields can be filtered and how (e.g., `where`, `whereLike`).
+- Then you have to create a `$whereFilters` property that defines which fields can be filtered and how (e.g., `where`, `whereLike`).
 
 - Code Example:
 
@@ -33,12 +33,32 @@ composer require mostafijartisan/wherefilter
 
       use Filter;
 
-      protected $filters = [
-          ['column' => 'name', 'queryType' => 'whereLike'],
-          ['column' => 'size', 'queryType' => 'where'],
-          ['column' => 'color', 'queryType' => 'where'],
-          ['column' => 'status', 'queryType' => 'where'],
-      ];
+      protected $whereFilters = [
+        [
+            'request' => 'name',
+            'relation' => '',
+            'column' => 'name',
+            'query' => 'whereLike'
+        ],
+        [
+            'request' => 'color',
+            'relation' => 'color',
+            'column' => 'color',
+            'query' => 'where'
+        ],
+        [
+            'request' => 'status',
+            'relation' => '',
+            'column' => 'status',
+            'query' => 'where'
+        ],
+        [
+            'request' => 'ids',
+            'relation' => '',
+            'column' => 'id',
+            'query' => 'whereIn'
+        ],
+    ];
   }
   ```
 
